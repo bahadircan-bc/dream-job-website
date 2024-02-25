@@ -9,16 +9,16 @@ export default function Hero() {
         <div className="pt-32 pb-10 md:pt-40 md:pb-16">
           {/* Section header */}
           <div className="w-[48rem] mx-auto text-center relative">
-            <h1 className="text-8xl mb-4 font-poiret-one" data-aos="fade-up">
+            <h1 className="text-8xl mb-4 font-poiret-one text-red-500" data-aos="fade-up">
               dream
             </h1>
             <div className="w-[48rem] h-40 relative">
 
               {/* Gradients */}
-              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-[2px] w-3/4 blur-sm" />
-              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-px w-3/4" />
-              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-orange-500 to-transparent h-[5px] w-1/4 blur-sm" />
-              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-orange-500 to-transparent h-px w-1/4" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-white to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-white to-transparent h-px w-3/4" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-white to-transparent h-[5px] w-1/4 blur-sm" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-white to-transparent h-px w-1/4" />
 
               {/* Core component */}
               <SparklesCore
