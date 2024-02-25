@@ -1,3 +1,11 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+ 
+const colors = require("tailwindcss/colors");
+
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -27,28 +35,6 @@ module.exports = {
           700: '#4B4ACF',
           800: '#38379C',
           900: '#262668',
-        },
-        jmpurple: {
-          100: '#F3E8FF',
-          200: '#E3C9FF',
-          300: '#DAAFFF',
-          400: '#C17AFF',
-          500: '#9D33D6',
-          600: '#7A2AA3',
-          700: '#5C1E7A',
-          800: '#3D1251',
-          900: '#20082D',
-        },
-        jmorange: {
-          100: '#FFF3E8',
-          200: '#FFE3C9',
-          300: '#FFDAAF',
-          400: '#FFC17A',
-          500: '#E36732',
-          600: '#C14F2A',
-          700: '#A13D23',
-          800: '#7D2E19',
-          900: '#5A1F10',
         },
       },
       spacing: {
@@ -89,9 +75,32 @@ module.exports = {
       scale: {
         '98': '.98'
       },
+      animation: {
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+      },
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
+    addVariablesForColors
   ],
+}
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
 }
